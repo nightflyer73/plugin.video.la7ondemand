@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.la7ondemand"
+       name="La7 On Demand"
+       version="1.0.0"
+       provider-name="Nightflyer">
+  <requires>
+    <import addon="xbmc.python" version="1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary>Rivedi la programmazione di LA7 e LA7d</summary>
+    <description>L'ultima settimana di programmazione di LA7 e LA7d e l'archivio cult.</description>
+  </extension>
+</addon>
+
