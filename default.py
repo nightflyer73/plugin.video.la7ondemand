@@ -89,28 +89,24 @@ def show_episodes(mode, name):
     for show in grid:
         if show["title"] == name:
             for episode in show["episodes"]:
+                labels = {"title": episode["title"], 
+                        "tvshowtitle": episode["title"],
+                        "duration": int(episode["duration"][:-6]) * 60 + int(episode["duration"][-5:-3])}
+                
                 if mode == "epg":
                     airdate = epgstartdate + datetime.timedelta(days = int(episode["pos"]))
-                    datestr = airdate.strftime("%d.%m.%Y")
-                    airdatestr = airdate.strftime("%Y-%m-%d")
-                else:
-                    datestr = ""
-                    airdatestr = ""
-
+                    labels["date"] = airdate.strftime("%d.%m.%Y")
+                    labels["airdate"] = airdate.strftime("%Y-%m-%d")
+                
                 liStyle=xbmcgui.ListItem(episode["title"], thumbnailImage=episode["img_140"])
-                liStyle.setInfo(type="Video", 
-                    infoLabels={"title": episode["title"], 
-                        "tvshowtitle": episode["title"],
-                        "duration": episode["duration"],
-                        "date": datestr,
-                        "airdate": airdatestr})
+                liStyle.setInfo(type="Video", infoLabels=labels)
 
                 if Addon.getSetting("bitrate") == "1":
                     bitrate = "high"
                 else:
                     bitrate = "low"
 
-                addLinkItem(ond.getVideoURL(episode["xmlURL"], bitrate), liStyle)
+                addLinkItem(ond.getVideoURL(episode["xmlURL"], episode["linkUrl"], bitrate), liStyle)
     if mode == "epg":
         xbmcplugin.addSortMethod(handle, xbmcplugin.SORT_METHOD_DATE)
     xbmcplugin.endOfDirectory(handle=handle, succeeded=True)

@@ -6,6 +6,7 @@ class La7ondemand:
         __CULT_URL = "http://www.la7.tv/xml/cult/index.xml"
         __HTTP_VIDEO_URL = "http://videoteca1.alice.cdn.interbusiness.it/vod/"
         __RTMP_VIDEO_URL = "rtmp://videoteca1.alice.cdn.interbusiness.it:1935/vod"
+        __SWF_URL = "http://static.la7.tv/swf/richPlayer5.swf"
 
         EPG = 0
         CULT = 1
@@ -44,6 +45,7 @@ class La7ondemand:
                                 episode["pos"] = itemNode.attributes["pos"].value
                                 episode["assetID"] = itemNode.attributes["assetID"].value
                                 episode["xmlURL"] = itemNode.attributes["xmlURL"].value
+                                episode["linkUrl"] = itemNode.attributes["linkUrl"].value
                                 episode["title"] = itemNode.getElementsByTagName('title')[0].childNodes[0].data
                                 episode["duration"] = itemNode.getElementsByTagName('duration')[0].childNodes[0].data
                                 episode["img_65"] = itemNode.getElementsByTagName('img')[0].attributes["src"].value
@@ -58,7 +60,7 @@ class La7ondemand:
                         
                 return grid
                 
-        def getVideoURL(self, xmlURL, quality):
+        def getVideoURL(self, xmlURL, pageUrl, quality):
                 """
                 get getVideoURL URL
                 @xmlURL is the URL containing episode metadata
@@ -77,4 +79,11 @@ class La7ondemand:
                 else:
                         videoURL = highVideoURL
                 
-                return self.__RTMP_VIDEO_URL + " playpath=" + videoURL
+                return self.__RTMP_VIDEO_URL + \
+                    " playpath=" + videoURL + \
+                    " pageUrl=" + pageUrl + \
+                    " swfUrl=" + self.__SWF_URL
+
+                # return self.__HTTP_VIDEO_URL + \
+                    # videoURL[5:]
+                    
