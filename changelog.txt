@@ -1,3 +1,8 @@
+[B]1.0.1[/B]
+- Fix RTMP video URL's
+- Add support for HTML video URL's (not enabled)
+- Fix video info labels
+
 [B]1.0.0[/B]
 - first release
 
