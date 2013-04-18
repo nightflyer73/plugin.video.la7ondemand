@@ -11,9 +11,15 @@
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
+    <language>it</language>
     <platform>all</platform>
-    <summary>Rivedi la programmazione di LA7 e LA7d</summary>
-    <description>L'ultima settimana di programmazione di LA7 e LA7d e l'archivio cult.</description>
+    <summary lang="it">Rivedi le trasmissioni di LA7 e LA7d</summary>
+    <description lang="it">L'ultima settimana di programmazione di LA7 e LA7d e l'archivio cult.</description>
+    <summary lang="en">Watch again the broadcasts of LA7 and LA7d</summary>
+    <description lang="en">Catch up of the last week of LA7 and LA7D and the cult archive.</description>
+    <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</license>
+    <forum>http://forum.xbmc.org/showthread.php?tid=155920</forum>
+    <website>https://github.com/nightflyer73/plugin.video.la7ondemand</website>
+    <source>https://github.com/nightflyer73/plugin.video.la7ondemand</source>
   </extension>
 </addon>
-
