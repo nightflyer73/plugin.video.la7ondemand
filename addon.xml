@@ -4,7 +4,7 @@
        version="1.0.1"
        provider-name="Nightflyer">
   <requires>
-    <import addon="xbmc.python" version="1.0"/>
+    <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.python.pluginsource"
             library="default.py">
@@ -20,6 +20,7 @@
     <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</license>
     <forum>http://forum.xbmc.org/showthread.php?tid=155920</forum>
     <website>https://github.com/nightflyer73/plugin.video.la7ondemand</website>
+    <email></email>
     <source>https://github.com/nightflyer73/plugin.video.la7ondemand</source>
   </extension>
 </addon>
