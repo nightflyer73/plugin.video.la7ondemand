@@ -49,8 +49,6 @@ def show_last_week():
     grid = ond.getGrid(ond.EPG)
     for show in grid:
         title = show["title"]
-        if bool(Addon.getSetting("show_channel") == "true"):
-            title = title + " (" + show["channel"] + ")"
         liStyle = xbmcgui.ListItem(title.upper(), thumbnailImage=show["logo"])
         addDirectoryItem({"mode": "epg", "name": show["title"]}, liStyle)
 
@@ -65,8 +63,6 @@ def show_cult():
     grid = ond.getGrid(ond.CULT)
     for show in grid:
         title = show["title"]
-        if bool(Addon.getSetting("show_channel") == "true"):
-            title = title + " (" + show["channel"] + ")"
         liStyle = xbmcgui.ListItem(title.upper(), thumbnailImage=show["logo"])
         addDirectoryItem({"mode": "cult", "name": show["title"]}, liStyle)
 
@@ -101,12 +97,7 @@ def show_episodes(mode, name):
                 liStyle=xbmcgui.ListItem(episode["title"], thumbnailImage=episode["img_140"])
                 liStyle.setInfo(type="Video", infoLabels=labels)
 
-                if Addon.getSetting("bitrate") == "1":
-                    bitrate = "high"
-                else:
-                    bitrate = "low"
-
-                addLinkItem(ond.getVideoURL(episode["xmlURL"], episode["linkUrl"], bitrate), liStyle)
+                addLinkItem(episode["videoUrl"], liStyle)
     if mode == "epg":
         xbmcplugin.addSortMethod(handle, xbmcplugin.SORT_METHOD_DATE)
     xbmcplugin.endOfDirectory(handle=handle, succeeded=True)

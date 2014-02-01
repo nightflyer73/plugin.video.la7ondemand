@@ -1,5 +1,0 @@
-<settings>
-   <setting id="show_channel" type="bool" label="30000" default="false"/>
-   <setting id="bitrate" type="enum" label="30001" values="low|high" default="1"/>
-</settings>
-
