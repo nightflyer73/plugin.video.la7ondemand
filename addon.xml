@@ -22,5 +22,6 @@
     <website>https://github.com/nightflyer73/plugin.video.la7ondemand</website>
     <email></email>
     <source>https://github.com/nightflyer73/plugin.video.la7ondemand</source>
+    <broken>La 7 On Demand service has been shut down</broken>
   </extension>
 </addon>
